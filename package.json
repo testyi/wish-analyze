@@ -1,0 +1,29 @@
+{
+  "name": "wish-analyze",
+  "version": "1.0.0",
+  "description": "",
+  "main": "wish.js",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "nodemailer": "^4.6.3",
+    "pretty-format": "^22.4.3",
+    "qs": "^6.5.1",
+    "redux-saga": "^0.16.0",
+    "request": "^2.83.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/taichiyi/wish-analyze.git"
+  },
+  "keywords": [],
+  "author": "taichiyi <taichiyi@foxmail.com>",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/taichiyi/wish-analyze/issues"
+  },
+  "homepage": "https://github.com/taichiyi/wish-analyze#readme"
+}
