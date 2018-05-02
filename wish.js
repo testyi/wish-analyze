@@ -4,6 +4,15 @@ const qs = require('qs');
 const fs = require('fs');
 const prettyFormat = require('pretty-format');
 const nodemailer = require('nodemailer');
+let keys = {
+  pass: '' // 需要自己配置
+};
+
+try {
+  keys = require('./keys.json');
+} catch (error) {
+  console.log(error);
+}
 
 /**
  * TODO
@@ -59,7 +68,7 @@ const sendEmail = (subject = '', text = '') => {
     secure: false, // true for 465, false for other ports
     auth: {
       user: 'taichiyi@foxmail.com', // generated ethereal user
-      pass: 'hoxszobblltsbdha' // generated ethereal password
+      pass: keys.pass // generated ethereal password
     }
   });
 
