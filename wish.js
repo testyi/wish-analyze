@@ -131,10 +131,10 @@ const feed__get_filtered_feed = (headers_options = {}, form_options = {}) => {
     {
       Accept: 'application/json, text/javascript, */*; q=0.01',
       'X-Requested-With': 'XMLHttpRequest',
-      'X-XSRFToken': '2|03766d3e|d4dcf74f8011ce83b9961c37378bb909|1522564167',
+      'X-XSRFToken': '2|4b27eea3|4ad8965f243508c15d3624eabc0845ce|1525249107',
       'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3377.1 Safari/537.36',
       'Accept-Language': 'en-US;q=0.8,en;q=0.7,vi;q=0.6',
-      Cookie: '_xsrf=2|03766d3e|d4dcf74f8011ce83b9961c37378bb909|1522564167; bsid=c98941f8cd324a3c837df69da233680b; __utma=96128154.1752261050.1522564168.1522564168.1522564168.1; __utmc=96128154; __utmz=96128154.1522564168.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utmt=1; _timezone=8; cto_lwid=a84e61e4-6591-47a2-9df3-46aa85fa764b; sweeper_session="2|1:0|10:1522564276|15:sweeper_session|84:MWM5OTQzMmEtZDYxYS00NTQwLWExNjQtODI5NWYxMzRhOTQ2MjAxOC0wNC0wMSAwNjozMDo1Ni44MzA4NDE=|b179916dad4b53de24e190e0e3f4e012a3fddfcee14161f315db80831792e3bc"; sessionRefreshed_5ac07b89148085aec9c69413=true; ___rl__test__cookies=1522564364952; OUTFOX_SEARCH_USER_ID_NCOO=820452355.2651911; __utmb=96128154.19.10.1522564168; sweeper_uuid=5f5f3c7c09bb4b0b8c3628f1ad58d4d6'
+      Cookie: '_xsrf=2|4b27eea3|4ad8965f243508c15d3624eabc0845ce|1525249107; bsid=0cd8ff11fee54685b94c4fbd6af0e8c6; __utmc=96128154; __utmt=1; _timezone=8; __utma=96128154.959981641.1525249109.1525249109.1525249287.2; __utmz=96128154.1525249287.2.2.utmcsr=PASSWORD_RESET_CONFIRMATION|utmccn=2018-04-30_PASSWORD_RESET_CONFIRMATION|utmcmd=email; __utmb=96128154.2.10.1525249287; sweeper_uuid=ae5ddb0996954576ae2f27c93fe36a78; sweeper_session="2|1:0|10:1525249317|15:sweeper_session|84:YzQ0MTcxMWYtOGQyNS00M2NkLTg1YWMtMTdhZTdlM2ZjMWRjMjAxOC0wNS0wMiAwODoyMTo1MC40NjEzNjI=|70500a1b62a0f73986edf129981a6d2c3828143722db0de65c2e227cbe119792"; sessionRefreshed_5ac07b89148085aec9c69413=true'
     },
     headers_options
   );
@@ -164,7 +164,18 @@ const feed__get_filtered_feed = (headers_options = {}, form_options = {}) => {
     function(err, httpResponse, body) {
       if (err) return false;
       body = JSON.parse(body);
-      if (body.code !== 0) return false;
+      if (body.code !== 0) {
+        DEBUG && console.log(body);
+        switch (body.code) {
+          case 2:
+            DEBUG === false && sendEmail('wish错误', body.msg);
+            break;
+        
+          default:
+            break;
+        }
+        return false;
+      }
 
       const sweeper_uuid = body.sweeper_uuid;
       const data = body.data;
