@@ -1,7 +1,7 @@
 {
   "name": "wish-analyze",
   "version": "1.0.0",
-  "description": "",
+  "description": "wish-analyze",
   "main": "wish.js",
   "dependencies": {
     "axios": "^0.18.0",
@@ -21,7 +21,7 @@
   },
   "keywords": [],
   "author": "taichiyi <taichiyi@foxmail.com>",
-  "license": "BSD",
+  "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/taichiyi/wish-analyze/issues"
   },
