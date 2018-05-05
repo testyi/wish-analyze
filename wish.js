@@ -4,15 +4,6 @@ const qs = require('qs');
 const fs = require('fs');
 const prettyFormat = require('pretty-format');
 const nodemailer = require('nodemailer');
-let keys = {
-  pass: '' // 需要自己配置
-};
-
-try {
-  keys = require('./keys.json');
-} catch (error) {
-  console.log(error);
-}
 
 /**
  * TODO
@@ -30,6 +21,15 @@ const interval_time = 200; // 毫秒
 const continue_max_time = 1000 * 60 * 8; // 单词循环最大持续时间(毫秒)
 const big_interval_time = 1000 * 60 * 60 * 3; // 大循环(毫秒)
 const currently_viewing_threshold_region = [0.1, 30]; // currently_viewing 阀值区间
+let keys = {
+  pass: '' // 需要自己配置
+};
+
+try {
+  keys = require('./keys.json');
+} catch (error) {
+  console.log(error);
+}
 // ====== config -end- ======
 
 const base_url = 'https://www.wish.com';
