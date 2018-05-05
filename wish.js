@@ -163,7 +163,11 @@ const feed__get_filtered_feed = (headers_options = {}, form_options = {}) => {
     },
     function(err, httpResponse, body) {
       if (err) return false;
-      body = JSON.parse(body);
+      try {
+        body = JSON.parse(body);
+      } catch (error) {
+        feed__get_filtered_feed();
+      }
       if (body.code !== 0) {
         DEBUG && console.log(body);
         switch (body.code) {
@@ -292,8 +296,11 @@ const product__get = (headers_options = {}, form_options = {}, callback = () => 
     },
     function(err, httpResponse, body) {
       if (err) return callback();
-      // write_file('./wish_response.txt', body);
-      body = JSON.parse(body);
+      try {
+        body = JSON.parse(body);
+      } catch (error) {
+        feed__get_filtered_feed();
+      }
       if (body.code !== 0) return callback();
       const contest = body.data.contest;
       if (contest.currently_viewing && contest.currently_viewing.message) {
