@@ -299,7 +299,8 @@ const product__get = (headers_options = {}, form_options = {}, callback = () => 
       try {
         body = JSON.parse(body);
       } catch (error) {
-        feed__get_filtered_feed();
+        console.log('1111');
+        return feed__get_filtered_feed();
       }
       if (body.code !== 0) return callback();
       const contest = body.data.contest;
