@@ -315,6 +315,10 @@ const product__get = (headers_options = {}, form_options = {}, callback = () => 
           return callback();
         }
 
+        if (IsToyTime() && /sex/i.test(contest.keywords)) {
+          return callback();
+        }
+
         if (!result || result.length === 0) {
           return callback();
         } else {
