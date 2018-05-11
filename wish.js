@@ -166,7 +166,9 @@ const feed__get_filtered_feed = (headers_options = {}, form_options = {}) => {
       try {
         body = JSON.parse(body);
       } catch (error) {
-        feed__get_filtered_feed();
+        setTimeout(() => {
+          feed__get_filtered_feed();
+        }, continue_max_time);
       }
       if (body.code !== 0) {
         DEBUG && console.log(body);
@@ -299,7 +301,6 @@ const product__get = (headers_options = {}, form_options = {}, callback = () => 
       try {
         body = JSON.parse(body);
       } catch (error) {
-        console.log('1111');
         return feed__get_filtered_feed();
       }
       if (body.code !== 0) return callback();
