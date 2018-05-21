@@ -13,12 +13,14 @@ const nodemailer = require('nodemailer');
  */
 
 // ====== config -start- ======
-const DEBUG = false;
+const DEBUG = true;
 let data_number = 50;
 const toy_data_number = 20;
 const normal_data_number = 50;
 const interval_time = 200; // 毫秒
-const continue_max_time = 1000 * 60 * 5; // 单词循环最大持续时间(毫秒)
+let continue_max_time = 1000 * 60 * 5; // 单词循环最大持续时间(毫秒)
+const toy_continue_max_time = 1000 * 60 * 8; // 单词循环最大持续时间(毫秒)
+const normal_continue_max_time = 1000 * 60 * 5; // 单词循环最大持续时间(毫秒)
 const big_interval_time = 1000 * 60 * 60 * 3; // 大循环(毫秒)
 const currently_viewing_threshold_region = [0.1, 30]; // currently_viewing 阀值区间
 let keys = {
@@ -168,7 +170,7 @@ const feed__get_filtered_feed = (headers_options = {}, form_options = {}) => {
       } catch (error) {
         setTimeout(() => {
           feed__get_filtered_feed();
-        }, continue_max_time);
+        }, normal_continue_max_time);
       }
       if (body.code !== 0) {
         DEBUG && console.log(body);
@@ -231,6 +233,7 @@ const feed__get_filtered_feed = (headers_options = {}, form_options = {}) => {
       DEBUG && console.log(data_result.length);
       const continue_time = +new Date() - start_time_str;
       DEBUG && console.log(continue_time);
+      continue_max_time = IsToyTime() ? toy_continue_max_time : normal_continue_max_time;
       DEBUG && console.log(continue_max_time);
       if (data_result.length > data_number || continue_time > continue_max_time) {
         const filter_repeat_data_result = filter_repeat_data(data_result);
