@@ -13,7 +13,7 @@ const nodemailer = require('nodemailer');
  */
 
 // ====== config -start- ======
-const DEBUG = true;
+const DEBUG = false;
 let data_number = 50;
 const toy_data_number = 20;
 const normal_data_number = 50;
