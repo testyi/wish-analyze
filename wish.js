@@ -422,7 +422,8 @@ const IsToyTime = () => {
   const timeStartStr = Date.parse(timeStart);
   const timeEndStr = Date.parse(timeEnd);
 
-  return timeStartStr <= timeNowStr && timeNowStr <= timeEndStr;
+  return false;
+  // return timeStartStr <= timeNowStr && timeNowStr <= timeEndStr;
 };
 
 feed__get_filtered_feed();
