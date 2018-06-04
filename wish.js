@@ -23,6 +23,8 @@ const toy_continue_max_time = 1000 * 60 * 8; // 单词循环最大持续时间(�
 const normal_continue_max_time = 1000 * 60 * 5; // 单词循环最大持续时间(毫秒)
 const big_interval_time = 1000 * 60 * 60 * 3; // 大循环(毫秒)
 const currently_viewing_threshold_region = [0.1, 30]; // currently_viewing 阀值区间
+const X_XSRFToken = '2|781d28eb|f33d3a23e2d3b7fa875cf234ee4c31ef|1528076377';
+const Cookie = 'G_ENABLED_IDPS=google; cto_lwid=da2b45a3-156a-4c47-852e-2ff76d2e7ac4; _xsrf=2|781d28eb|f33d3a23e2d3b7fa875cf234ee4c31ef|1528076377; bsid=143ad91b0d644c779a9a7bb151550565; __utma=96128154.118071851.1528076379.1528076379.1528076379.1; __utmc=96128154; __utmz=96128154.1528076379.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utmt=1; __utmb=96128154.1.10.1528076379; _timezone=-8; sweeper_uuid=39658b38ff94443b8c9235df61386ca9; sweeper_session="2|1:0|10:1528076404|15:sweeper_session|84:MzY5NjdjMjYtNjc4My00ZWUyLWJmMGUtNjc3N2I5MzY1OTNiMjAxOC0wNi0wNCAwMTo0MDowMC43MzI3NjQ=|72d10ab17b876f0faeb00caf66b3b18510a38ae3cac61a27316af12aa7cdc374"; sessionRefreshed_5ac07b89148085aec9c69413=true; __stripe_mid=e7f246fa-dc08-4aee-b037-5217f97f9351; __stripe_sid=3bffcb71-f83f-40cf-a91f-debebed2f3fa';
 let keys = {
   pass: '' // 需要自己配置
 };
@@ -133,10 +135,10 @@ const feed__get_filtered_feed = (headers_options = {}, form_options = {}) => {
     {
       Accept: 'application/json, text/javascript, */*; q=0.01',
       'X-Requested-With': 'XMLHttpRequest',
-      'X-XSRFToken': '2|4b27eea3|4ad8965f243508c15d3624eabc0845ce|1525249107',
+      'X-XSRFToken': X_XSRFToken,
       'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3377.1 Safari/537.36',
       'Accept-Language': 'en-US;q=0.8,en;q=0.7,vi;q=0.6',
-      Cookie: '_xsrf=2|4b27eea3|4ad8965f243508c15d3624eabc0845ce|1525249107; bsid=0cd8ff11fee54685b94c4fbd6af0e8c6; __utmc=96128154; __utmt=1; _timezone=8; __utma=96128154.959981641.1525249109.1525249109.1525249287.2; __utmz=96128154.1525249287.2.2.utmcsr=PASSWORD_RESET_CONFIRMATION|utmccn=2018-04-30_PASSWORD_RESET_CONFIRMATION|utmcmd=email; __utmb=96128154.2.10.1525249287; sweeper_uuid=ae5ddb0996954576ae2f27c93fe36a78; sweeper_session="2|1:0|10:1525249317|15:sweeper_session|84:YzQ0MTcxMWYtOGQyNS00M2NkLTg1YWMtMTdhZTdlM2ZjMWRjMjAxOC0wNS0wMiAwODoyMTo1MC40NjEzNjI=|70500a1b62a0f73986edf129981a6d2c3828143722db0de65c2e227cbe119792"; sessionRefreshed_5ac07b89148085aec9c69413=true'
+      Cookie: Cookie
     },
     headers_options
   );
@@ -270,10 +272,10 @@ const product__get = (headers_options = {}, form_options = {}, callback = () => 
     {
       Accept: 'application/json, text/javascript, */*; q=0.01',
       'X-Requested-With': 'XMLHttpRequest',
-      'X-XSRFToken': '2|03766d3e|d4dcf74f8011ce83b9961c37378bb909|1522564167',
+      'X-XSRFToken': X_XSRFToken,
       'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3377.1 Safari/537.36',
       'Accept-Language': 'en-US;q=0.8,en;q=0.7,vi;q=0.6',
-      Cookie: '_xsrf=2|03766d3e|d4dcf74f8011ce83b9961c37378bb909|1522564167; bsid=c98941f8cd324a3c837df69da233680b; __utma=96128154.1752261050.1522564168.1522564168.1522564168.1; __utmc=96128154; __utmz=96128154.1522564168.1.1.utmcsr=(direct)|utmccn=(direct)|utmcmd=(none); __utmt=1; _timezone=8; cto_lwid=a84e61e4-6591-47a2-9df3-46aa85fa764b; sweeper_session="2|1:0|10:1522564276|15:sweeper_session|84:MWM5OTQzMmEtZDYxYS00NTQwLWExNjQtODI5NWYxMzRhOTQ2MjAxOC0wNC0wMSAwNjozMDo1Ni44MzA4NDE=|b179916dad4b53de24e190e0e3f4e012a3fddfcee14161f315db80831792e3bc"; sessionRefreshed_5ac07b89148085aec9c69413=true; ___rl__test__cookies=1522564364952; OUTFOX_SEARCH_USER_ID_NCOO=820452355.2651911; __utmb=96128154.19.10.1522564168; sweeper_uuid=5f5f3c7c09bb4b0b8c3628f1ad58d4d6'
+      Cookie: Cookie
     },
     headers_options
   );
