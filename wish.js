@@ -10,6 +10,7 @@ const nodemailer = require('nodemailer');
  * - 分析出店铺设置的商品金额
  * - 分析出店铺设置的运费
  * - 分析出上架时间
+ * - test
  */
 
 // ====== config -start- ======
